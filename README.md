@@ -132,7 +132,7 @@ We need to add in two more bits of configuration. First goto *Certificates & Sec
 
 ![images/aad-secret.png](images/aad-secret.png)
 
-Under *Authentiction* enable *Allow public client flows** so we can access this registered application from 3scale.
+Under *Authentiction* enable *Allow public client flows* so we can access this registered application from 3scale.
 
 ![images/aad-public-access.png](images/aad-public-access.png)
 
@@ -180,7 +180,13 @@ For example:
 
 ![images/3scale-authentication.png](images/3scale-authentication.png)
 
-Next, configure the *OIDC Authorization Flow*. Select the flows you wish to support. Importantly, change the default *ClientID Token Claim* from *azp* to *aud*. In the JWT Token the name of this field matches where the Azure AD *Application (client) ID* can be found in the token. Different IDP's do this differently so you often need to [inspect your JWT token](https://jwt.io/) to make sure it is correct. We will do this in a later step. For now, it should look like this:
+Next, configure the *OIDC Authorization Flow*. 
+
+- Select the flows you wish to support. 
+- Importantly, change the default *ClientID Token Claim* from *azp* to *aud*. 
+- In the JWT Token the name of this field matches where the Azure AD *Application (client) ID* can be found in the token.
+
+Different IDP's do this differently so you often need to [inspect your JWT token](https://jwt.io/) to make sure it is correct. We will do this in a later step. For now, it should look like this:
 
 ![images/3scale-oidc-flow.png](images/3scale-oidc-flow.png)
 
