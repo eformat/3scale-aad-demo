@@ -55,7 +55,7 @@ Goto *Operators -> OperatorHub*. Search and install the *Red Hat Integration - 3
 
 ![images/3scale-operator-installed.png](images/3scale-operator-installed.png)
 
-Create an *API Manager* resource from the operator api. You will need to specify a wildcard domain. I used *<project>.<cluster app domain>*. The system-storage PVC also requires RWX, so i used a shared storage class *aws-efs* for this. Your may need to tweak this based on your cluster setup.
+Create an *API Manager* resource from the operator api. You will need to specify a wildcard domain. I used the format *project-name.cluster-app-domain*. The system-storage PVC also requires RWX, so i used a shared storage class *aws-efs* for this. Your may need to tweak this based on your cluster setup.
 
 ```yaml
 apiVersion: apps.3scale.net/v1alpha1
