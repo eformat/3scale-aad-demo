@@ -1,4 +1,4 @@
-# 3scale-aad-demo
+# 3scale Azure Active Directory Demo
 
 A common use case for 3scale is the ability to integrate to 3rd party Identity Providers (IDP). There have been a number of previous integrations blogged about:
 
