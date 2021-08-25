@@ -124,7 +124,7 @@ When going through the registration form, select the following:
 
 Ok, once that created it should look like this:
 
-- Take note of the **Application (client) ID* in particular as we need this value later on.
+- Take note of the *Application (client) ID* in particular as we need this value later on.
 
 ![images/aad-test-app.png](images/aad-test-app.png)
 
