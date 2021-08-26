@@ -136,9 +136,13 @@ Under *Authentiction* enable *Allow public client flows* so we can access this r
 
 ![images/aad-public-access.png](images/aad-public-access.png)
 
-Under *Expose an API* set the api id, use the default. For now, we will not add any more here e.g. App Roles and permissions.
+Under *Expose an API* set the api id, use the default. For now, we will not add any more here e.g. *App Roles* and permissions. Save this.
 
 ![images/aad-app-id.png](images/aad-app-id.png)
+
+Edit the *Manifest* and add **"accessTokenAcceptedVersion": 2** which you can read about [here](https://docs.microsoft.com/en-us/azure/active-directory/develop/reference-app-manifest#accesstokenacceptedversion-attribute). We want to return v2.0 tokens to support our authentication flows (and the /v2 endpoint can return v1 tokens if you ask for the wrong thing). Save this.
+
+![images/aad-manifest.png](images/aad-manifest.png)
 
 Finally, you can check out the OIDC compliant *well-known* configuration endpoint which is publicly available for you app. Mine looks like this:
 
