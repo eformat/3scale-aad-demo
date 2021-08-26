@@ -136,6 +136,10 @@ Under *Authentiction* enable *Allow public client flows* so we can access this r
 
 ![images/aad-public-access.png](images/aad-public-access.png)
 
+Under *Expose an API* set the api id, use the default. For now, we will not add any more here e.g. App Roles and permissions.
+
+![images/aad-app-id.png](images/aad-app-id.png)
+
 Finally, you can check out the OIDC compliant *well-known* configuration endpoint which is publicly available for you app. Mine looks like this:
 
 ```bash
@@ -194,7 +198,7 @@ Finally, set the *Credentials Location* to be *As HTTP Headers*
 
 ![images/3scale-cred-headers.png](images/3scale-cred-headers.png)
 
-Save this by selecting **Update Product*.
+Save this by selecting *Update Product*.
 
 The *Integration -> Configuration* tab should highlight that you need to promote this configuration to an environment. 
 
@@ -239,6 +243,12 @@ You should see **Authentication complete** click *Proceed* which will give you a
 [Inspect your JWT tokens](https://jwt.io/) you can see for the OAuth Bearer token that the **aud** field matched the Azure AD *Application (client) ID*. The default token expiry is 1hr. We do not cover Refresh tokens here, but in a normal setup the *Consumer* will be able to handle refreshes of the token from the IDP to avoid having to login in again.
 
 ![images/jwt-bearer-token.png](images/jwt-bearer-token.png)
+
+> **TIP** You can also obtain a bearer token without a user [OAuth 2.0 client credentials grant flow](https://docs.microsoft.com/en-us/graph/auth-v2-service) by supplying the *client*, *client secret*, *scope* and *audience*. Here is a cool bash one liner using curl (note you need to url escape the parameters)
+
+```bash
+TOKEN=$(curl -s -XPOST -H "Content-Type: application/x-www-form-urlencoded" https://login.microsoftonline.com/64dc69e4-d083-49fc-9569-ebece1dd1408/oauth2/v2.0/token -d 'client_id=ca025cdb-1d8a-4a30-9056-0e47539ffbc9&audience=api%3A%2F%2Fca025cdb-1d8a-4a30-9056-0e47539ffbc9&scope=api%3A%2F%2Fca025cdb-1d8a-4a30-9056-0e47539ffbc9%2F.default&client_secret=<CLIENT_SECRET>&grant_type=client_credentials' | jq --raw-output .access_token )
+```
 
 ### Testing 3scale Token Validation
 
