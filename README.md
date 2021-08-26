@@ -262,6 +262,16 @@ APICAST_OIDC_LOG_LEVEL=debug
 
 And check for error messages in the gateway pod logs.
 
+
+### Automating Client CRUD interactions
+
+In this example, we make use of the *REST* adapter without modification in 3Scale.
+
+The next steps for creating a fully automated experience is to take the example REST adapter and modify it for use with AAD.
+
+- [Configure HTTP integration with third-party Identity Providers](https://access.redhat.com/documentation/en-us/red_hat_3scale_api_management/2.10/html-single/administering_the_api_gateway/index#configure-oidc-idp-integration)
+- [Add third-party IdP Integration in 3scale for REST API Client Registration](https://access.redhat.com/solutions/4831971)
+
 ### Complex Backend Service Interactions
 
 The external service encapsulated by the backend in this example was publicy available https://echo-api.3scale.net:443. Normally this would be protected as well and not publicly exposed.
