@@ -281,7 +281,7 @@ And check for error messages in the gateway pod logs.
 
 In this example, we make use of the *REST* adapter without modification in 3Scale.
 
-The next steps for creating a fully automated experience is to take the example REST adapter and modify it for use with AAD. AAD does not support the [Dynamic Client Registration](https://openid.net/specs/openid-connect-registration-1_0.html#ClientRegistration) as specified in the [openid connect spec](https://openid.net/specs/openid-connect-registration-1_0.html#ClientRegistration). It does support the Microsoft Graph API though, so theoretically you can write zync code to sync the clients.
+The next steps for creating a fully automated experience is to take the example REST adapter and modify it for use with AAD. AAD does not support the [Dynamic Client Registration](https://openid.net/specs/openid-connect-registration-1_0.html#ClientRegistration) as specified in the openid connect spec. It does support the Microsoft Graph API though, so theoretically you can write zync code to sync the clients.
 
 - [Configure HTTP integration with third-party Identity Providers](https://access.redhat.com/documentation/en-us/red_hat_3scale_api_management/2.10/html-single/administering_the_api_gateway/index#configure-oidc-idp-integration)
 - [Add third-party IdP Integration in 3scale for REST API Client Registration](https://access.redhat.com/solutions/4831971)
